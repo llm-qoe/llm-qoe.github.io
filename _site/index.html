@@ -1,33 +1,32 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head><meta charset="UTF-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services · Andes</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="description" content="Build Jekyll site with the GitBook style.
-"><meta name="generator" content="Jekyll (using style of GitBook 3.2.3)"><meta name="author" content="HE Tao"><link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/style.css">
-<link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
-<link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
-<link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/gitbook-plugin-fontsettings/website.css">
-<link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/gitbook-plugin-search-pro/search.css">
-<link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/gitbook-plugin-splitter/splitter.css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"><title>Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services · Andes Blog</title><meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="description" content=""><meta name="generator" content="Jekyll (using style of GitBook 3.2.3)"><meta name="author" content="Amber Liu"><link rel="stylesheet" href="/assets/gitbook/style.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-fontsettings/website.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-search-pro/search.css">
+<link rel="stylesheet" href="/assets/gitbook/gitbook-plugin-splitter/splitter.css">
 
-<link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/rouge/colorful.css">
+<link rel="stylesheet" href="/assets/gitbook/rouge/colorful.css">
 
-<link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/custom.css">
-<link rel="stylesheet" href="/jekyll-gitbook/assets/gitbook/custom-local.css">
+<link rel="stylesheet" href="/assets/gitbook/custom.css">
+<link rel="stylesheet" href="/assets/gitbook/custom-local.css">
 
 <meta name="HandheldFriendly" content="true"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/jekyll-gitbook/assets/gitbook/images/logo.jpg">
-<link rel="shortcut icon" href="/jekyll-gitbook//assets/gitbook/images/logo.jpg" type="image/x-icon">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/logo.jpg">
+<link rel="shortcut icon" href="//assets/gitbook/images/logo.jpg" type="image/x-icon">
 
 
 
 
 
         
-            <link rel="next" href="/jekyll-gitbook" />
+            <link rel="next" href="" />
         
     </head>
     <body>
@@ -56,14 +55,14 @@
             <input type="text" placeholder="Type to search" />
         </div>
         <div id="book-search-input-link" role="search">
-            <a href="/jekyll-gitbook/assets/search.html">Click to Search</a>
+            <a href="/assets/search.html">Click to Search</a>
         </div>
         <ul class="summary">
             
-            <li class="chapter active" data-level="1.1" data-path="/jekyll-gitbook">
+            <li class="chapter active" data-level="1.1" data-path="">
             
-                <a href="/jekyll-gitbook/" onclick="pageScrollToTop(this)">
-                    Andes
+                <a href="/" onclick="pageScrollToTop(this)">
+                    Andes Blog
                 </a>
             </li>
 
@@ -76,9 +75,9 @@
 
                     
                         
-                        <li class="chapter" data-level="1.1" data-path="/jekyll-gitbook/pages/about/">
+                        <li class="chapter" data-level="1.1" data-path="/pages/about/">
                         
-                            <a href="/jekyll-gitbook/pages/about/" onclick="pageScrollToTop(this)">
+                            <a href="/pages/about/" onclick="pageScrollToTop(this)">
                                 About
                             </a>
                             
@@ -126,11 +125,69 @@
                         <h1 id="">Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services</h1>
                     
 
-                    <p><strong>TL;DR:</strong> Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots by streaming tokens to users, akin to video streaming. Such text streaming service allows users to digest the content incrementally, whether in text or speech form. However, existing serving systems primarily focus on optimizing server-side aggregated metrics like token generation throughput, ignoring individual user experience with streamed text. As a result, under high and/or bursty load, a significant number of users can receive unfavorable service quality or poor Quality-of-Experience (QoE).</p>
+                    <center><b>GitHub  (Coming soon) | Paper (TODO)</b></center>
+
+<p><strong>TL;DR:</strong> Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots by streaming tokens to users, akin to video streaming. Such text streaming service allows users to digest the content incrementally, whether in text or speech form. However, existing serving systems primarily focus on optimizing server-side aggregated metrics like token generation throughput, ignoring individual user experience with streamed text. As a result, under high and/or bursty load, a significant number of users can receive unfavorable service quality or poor Quality-of-Experience (QoE).</p>
 
 <p>In this project, we first formally define QoE of text streaming services by considering the end-to-end token delivery process throughout the entire interaction with the user. Thereafter, we propose Andes, a QoE-aware serving system that enhances user experience for LLM-enabled text streaming services. At its core, Andes strategically allocates contended GPU resources among multiple requests over time to optimize their QoE. Our evaluations demonstrate that, compared to the state-of-the-art LLM serving systems like vLLM, Andes improves the average QoE by up to 3.2× under high request rate, or alternatively, it attains up to 1.6× higher request rate while preserving high QoE.</p>
 
 <h2 id="a-user-side-story">A User-Side Story</h2>
+
+<p>Imagine three different scenarios where text is streamed to users. Despite all having the same efficiency in token generation throughput, their user experiences vary dramatically:</p>
+
+<p><img src="/assets/post_img/qoe-comparison.gif" alt="qoe-comparison" /></p>
+
+<p>Despite generating the same amount of tokens within the same time frame; even scenarios 2 and 3, which have identical average or P90 time per output token latency, these scenarios deliver vastly different user experiences. The slowdown that happens in scenario 1 and 2 are common under high server loads, such as during bursty request periods or when managing requests with extensive context.</p>
+
+<p>It is crucial that the initial response is prompt and that subsequent tokens are delivered at a pace aligned with the user’s ability to digest them.  However, the expected token delivery speed (TDS) differs from request to request. For instance, a chat service utilizing text-to-speech to deliver responses may have different pacing requirements than a text-based chat service, because a user’s speaking speed is often slower than their reading speed, but it may require smaller time to first token (TTFT) to better resemble real-life verbal conversations.</p>
+
+<p>In sum, QoE in text streaming shouldn’t be just another aggregated number to track; it needs to capture the entire user interaction from start to finish. Please refer to Section 3.1 of our paper for more detailed QoE formulation.</p>
+
+<h2 id="system-imbalance-and-opportunity">System Imbalance and Opportunity</h2>
+
+<p>Current first-come, first-served (FCFS) scheduling policy, commonly adopted in LLM serving systems, fails to account for the QoE requirements of individual requests and cannot efficiently utilize resources. As shown in Figure 2, they often lead to misaligned user experiences, where the timing of token delivery doesn’t necessarily meet user needs.</p>
+
+<!-- ![Schedule1](/assets/post_img/user-exp-1.png ) -->
+<p align="center">
+  <img src="/assets/post_img/user-exp-1.png" alt="Schedule1" style="width:80%;" />
+</p>
+<p><em><center>Figure 2 (a). Existing LLM serving systems are oblivious of QoE. User 2 experiencesRaelqounesgt 1waanidt2tiamrrieve(TTFT) and therefore lower QoE.</center></em></p>
+
+<!-- ![Schedule1 2](/assets/post_img/user-exp-2.png) -->
+
+<p align="center">
+  <img src="/assets/post_img/user-exp-2.png" alt="Schedule2" style="width:80%;" />
+</p>
+<p><em><center>Figure 2 (b). A QoE-aware LLM serving system can schedule token gen- eration over time to enhance QoE. User 2’s TTFT is drastically improved without affecting User 1’s token delivery timeline.</center></em></p>
+
+<p>We notice that especially under high request load, uneven user experiences arise as shown in Figure 3: (1) certain users may encounter extended time to first token, or TTFT; (2) conversely, other users might receive tokens at a pace (TDS) surpassing their digestion ability.</p>
+
+<div style="display: flex; justify-content: center;">
+  <div style="margin-right: 10px; text-align: center;">
+    <img src="/assets/post_img/imbalance-1.png" alt="Imbalance 1" style="width: 350px;" />
+    <figcaption>Figure 3 (a). 90th-p TTFTincreasesdra- matically as the request rate surpasses the server’s capacity.</figcaption>
+  </div>
+  <div style="margin-left: 10px; text-align: center;">
+    <img src="/assets/post_img/imbalance-2.png" alt="Imbalance 1" style="width: 350px;" />
+    <figcaption>Figure 3 (b). Token generation speed is much faster than the user- expected speed.</figcaption>
+  </div>
+</div>
+
+<!-- *<center>Figure 3. System performance under different request rates.</center>* -->
+<p>Usually, in order to preserve good user experience, the service provider must provision more compute resources proportional to the excess request load, leading to higher costs.</p>
+
+<p>However, we observe that there is an opportunity to optimize user experience by balancing prolonged TTFT and excessively fast token generation speed. By temporarily pausing the response generation for requests with already sufficient tokens generated, we can spare the limited GPU resources to other pending requests. This approach leverages the disparity between the expected and actual token generation speeds, optimizing both resource efficiency and user satisfaction.</p>
+
+<h2 id="introducing-andes-towards-a-better-user-experience-in-text-streaming-services">Introducing Andes: Towards a Better User Experience in Text Streaming Services</h2>
+
+<p>We propose Andes, an LLM serving system that optimizes the overall QoE of text streaming services. Andes employs a dynamic priority-based preemptive scheduler that operates at the granularity of tokens. Andes strategically allocates system resources to more urgent requests and preempts requests that have already received sufficient service, all to enhance QoE. Additionally, Andes takes the resource demand of each request into account while prioritizing resources. By satisfying more requests with high QoE using the same amount of resource, Andes eliminates the need for additional resource provisioning, thus reducing LLM serving cost. Andes also co-designs a client-side token buffer that temporarily withholds excess tokens and displays them to the user at their expected pace. This design ensures users experience smooth token delivery, oblivious to the intricacies of server-side scheduling or network fluctuations.</p>
+
+<p>In our evaluation of Andes, we show</p>
+<ol>
+  <li>Andes improves the average QoE up to 3.2× when the system experiences high/bursty load. Specifically, Andes significantly improves TTFT, while maintaining TDS above user expected speed.</li>
+  <li>Andes can handle up to 1.6× higher request rates while preserving high QoE without additional resources, significantly reducing the serving cost.</li>
+</ol>
+
 </section>
             </div><div class="search-results">
     <div class="has-results">
@@ -186,12 +243,12 @@ window.MathJax = {
     }
 </script>
 
-<a href="/jekyll-gitbook/" class="navigation navigation-pre navigation-unique">
+<a href="/" class="navigation navigation-pre navigation-unique">
                         <i class="fa"></i>
                     </a>
 
                     
-                        <a href="/jekyll-gitbook" class="navigation navigation-next navigation-unique" aria-label="Next page: ">
+                        <a href="" class="navigation navigation-next navigation-unique" aria-label="Next page: ">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     
@@ -301,7 +358,7 @@ window.MathJax = {
             "readme": "README.md",
         },
         "variables": {},
-        "title": "Andes",
+        "title": "Andes Blog",
         "language": "en",
         "gitbook": "*"
     },
@@ -312,26 +369,26 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-24 17:00:48 -0400"
+        "time": "2024-04-24 21:57:47 -0400"
     },
-    "basePath": "/jekyll-gitbook",
+    "basePath": "",
     "book": {
         "language": ""
     }
 });
             });
             </script>
-        </div><script src="/jekyll-gitbook/assets/gitbook/gitbook.js"></script>
-<script src="/jekyll-gitbook/assets/gitbook/theme.js"></script>
+        </div><script src="/assets/gitbook/gitbook.js"></script>
+<script src="/assets/gitbook/theme.js"></script>
 
-<script src="/jekyll-gitbook/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
-<script src="/jekyll-gitbook/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
-<script src="/jekyll-gitbook/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
-<script src="/jekyll-gitbook/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
-<script src="/jekyll-gitbook/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
-<script src="/jekyll-gitbook/assets/gitbook/gitbook-plugin-search-pro/search.js"></script>
-<script src="/jekyll-gitbook/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
-<script src="/jekyll-gitbook/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-search-pro/search.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-sharing/buttons.js"></script>
+<script src="/assets/gitbook/gitbook-plugin-splitter/splitter.js"></script>
 
 <!--
 <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>

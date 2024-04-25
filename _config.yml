@@ -1,16 +1,14 @@
 # Configurations
-title:            Andes
-longtitle:        Andes
-author:           HE Tao
-email:            sighingnow@gmail.com
-description: >
-  Build Jekyll site with the GitBook style.
+title:            Andes Blog
+longtitle:        Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services
+author:           Amber Liu
+email:            amberljc@umich.edu 
 
 version:          1.0
 gitbook_version:  3.2.3
 
-url:              'https://sighingnow.github.io'
-baseurl:          '/jekyll-gitbook'
+url:              'https://llm-qoe.github.io'
+baseurl:          ''
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
