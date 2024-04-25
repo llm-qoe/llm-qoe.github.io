@@ -3,6 +3,14 @@ layout: home
 title: Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services
 permalink: /
 ---
+ 
+*[Jiachen Liu](https://websites.umich.edu/~amberljc/),
+Zhiyu Wu,
+[Jae-Won Chung](https://jaewonchung.me/about),
+[Fan Lai](https://www.fanlai.me/),
+[Myungjin Lee](https://scholar.google.com/citations?user=XjWpxJUAAAAJ&hl=en),
+[Mosharaf Chowdhury](https://www.mosharaf.com/).*  *University of Michigan*
+ 
 
 <center><b>GitHub  (Coming soon) | Paper (TODO)</b></center>
 
@@ -47,7 +55,9 @@ Current first-come, first-served (FCFS) scheduling policy, commonly adopted in L
 </p>
 *<center>Figure 2 (b). A QoE-aware LLM serving system can schedule token gen- eration over time to enhance QoE. User 2’s TTFT is drastically improved without affecting User 1’s token delivery timeline.</center>*
 
+<center>Figure 2. Server-side token generation timeline and user- side response digestion progress. Even if the server generates tokens very fast, users cannot digest them at such a pace.</center>
 
+<br>
 
 We notice that especially under high request load, uneven user experiences arise as shown in Figure 3: (1) certain users may encounter extended time to first token, or TTFT; (2) conversely, other users might receive tokens at a pace (TDS) surpassing their digestion ability. 
 
@@ -63,7 +73,11 @@ We notice that especially under high request load, uneven user experiences arise
 </div>
  
 <!-- *<center>Figure 3. System performance under different request rates.</center>* -->
- Usually, in order to preserve good user experience, the service provider must provision more compute resources proportional to the excess request load, leading to higher costs. 
+ 
+
+<br>
+
+Usually, in order to preserve good user experience, the service provider must provision more compute resources proportional to the excess request load, leading to higher costs. 
 
 
 However, we observe that there is an opportunity to optimize user experience by balancing prolonged TTFT and excessively fast token generation speed. By temporarily pausing the response generation for requests with already sufficient tokens generated, we can spare the limited GPU resources to other pending requests. This approach leverages the disparity between the expected and actual token generation speeds, optimizing both resource efficiency and user satisfaction.

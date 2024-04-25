@@ -19,7 +19,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/gitbook/images/logo.jpg">
-<link rel="shortcut icon" href="//assets/gitbook/images/logo.jpg" type="image/x-icon">
+<link rel="shortcut icon" href="/./assets/gitbook/images/logo.jpg" type="image/x-icon">
 
 
 
@@ -125,7 +125,14 @@
                         <h1 id="">Defining and Enhancing Quality-of-Experience in LLM-Based Text Streaming Services</h1>
                     
 
-                    <center><b>GitHub  (Coming soon) | Paper (TODO)</b></center>
+                    <p><em><a href="https://websites.umich.edu/~amberljc/">Jiachen Liu</a>,
+Zhiyu Wu,
+<a href="https://jaewonchung.me/about">Jae-Won Chung</a>,
+<a href="https://www.fanlai.me/">Fan Lai</a>,
+<a href="https://scholar.google.com/citations?user=XjWpxJUAAAAJ&amp;hl=en">Myungjin Lee</a>,
+<a href="https://www.mosharaf.com/">Mosharaf Chowdhury</a>.</em>  <em>University of Michigan</em></p>
+
+<center><b>GitHub  (Coming soon) | Paper (TODO)</b></center>
 
 <p><strong>TL;DR:</strong> Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots by streaming tokens to users, akin to video streaming. Such text streaming service allows users to digest the content incrementally, whether in text or speech form. However, existing serving systems primarily focus on optimizing server-side aggregated metrics like token generation throughput, ignoring individual user experience with streamed text. As a result, under high and/or bursty load, a significant number of users can receive unfavorable service quality or poor Quality-of-Experience (QoE).</p>
 
@@ -164,6 +171,10 @@
 </p>
 <p><em><center>Figure 2 (b). A QoE-aware LLM serving system can schedule token gen- eration over time to enhance QoE. User 2’s TTFT is drastically improved without affecting User 1’s token delivery timeline.</center></em></p>
 
+<center>Figure 2. Server-side token generation timeline and user- side response digestion progress. Even if the server generates tokens very fast, users cannot digest them at such a pace.</center>
+
+<p><br /></p>
+
 <p>We notice that especially under high request load, uneven user experiences arise as shown in Figure 3: (1) certain users may encounter extended time to first token, or TTFT; (2) conversely, other users might receive tokens at a pace (TDS) surpassing their digestion ability.</p>
 
 <div style="display: flex; justify-content: center;">
@@ -178,6 +189,9 @@
 </div>
 
 <!-- *<center>Figure 3. System performance under different request rates.</center>* -->
+
+<p><br /></p>
+
 <p>Usually, in order to preserve good user experience, the service provider must provision more compute resources proportional to the excess request load, leading to higher costs.</p>
 
 <p>However, we observe that there is an opportunity to optimize user experience by balancing prolonged TTFT and excessively fast token generation speed. By temporarily pausing the response generation for requests with already sufficient tokens generated, we can spare the limited GPU resources to other pending requests. This approach leverages the disparity between the expected and actual token generation speeds, optimizing both resource efficiency and user satisfaction.</p>
@@ -373,7 +387,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-24 22:34:42 -0400"
+        "time": "2024-04-24 22:47:20 -0400"
     },
     "basePath": "",
     "book": {
