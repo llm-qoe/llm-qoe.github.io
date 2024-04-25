@@ -47,7 +47,8 @@ In sum, QoE in text streaming shouldn't be just another aggregated number to tra
 
 ## System Imbalance and Opportunity
 
-Current first-come, first-served (FCFS) scheduling policy, commonly adopted in LLM serving systems, fails to account for the QoE requirements of individual requests and cannot efficiently utilize resources. As shown in Figure 2, they often lead to misaligned user experiences, where the timing of token delivery doesn't necessarily meet user needs.
+Current first-come, first-served (FCFS) scheduling policy, commonly adopted in LLM serving systems, fails to account for the QoE requirements of individual requests and cannot efficiently utilize resources, especially when the request load surpasses the server's capacity. 
+As shown in Figure 2, they often lead to misaligned user experiences, where the timing of token delivery doesn't necessarily meet user needs.
  
 <p align="center">
   <img src="/assets/post_img/user-exp-1.png" alt="Schedule1" style="width:80%;">
@@ -91,7 +92,10 @@ However, we observe that there is an opportunity to optimize user experience by 
 ## Introducing Andes: Towards a Better User Experience in Text Streaming Services
 
 
-We propose **Andes**, an LLM serving system that optimizes the overall QoE of text streaming services. Andes employs a dynamic priority-based preemptive scheduler that operates at the granularity of tokens. Andes strategically allocates system resources to more urgent requests and preempts requests that have already received sufficient service, all to enhance QoE. Additionally, Andes takes the resource demand of each request into account while prioritizing resources. By satisfying more requests with high QoE using the same amount of resource, Andes eliminates the need for additional resource provisioning, thus reducing LLM serving cost. Andes also co-designs a client-side token buffer that temporarily withholds excess tokens and displays them to the user at their expected pace. This design ensures users experience smooth token delivery, oblivious to the intricacies of server-side scheduling or network fluctuations.
+We propose **Andes**, an LLM serving system that optimizes the overall QoE of text streaming services. Andes employs a dynamic priority-based preemptive scheduler that operates at the granularity of tokens. Andes strategically allocates resources to more urgent requests and preempts requests that have already received sufficient service, all to enhance QoE. Additionally, Andes takes the resource demand of each request into account while prioritizing resources. Together, we formulate the request scheduling problem as a knapsack variant and proposes a heuristic to solve it.
+
+
+By satisfying more requests with high QoE using the same amount of resource, Andes eliminates the need for additional resource provisioning, thus reducing LLM serving cost. Andes also co-designs a client-side token buffer that temporarily withholds excess tokens and displays them to the user at their expected pace. This design ensures users experience smooth token delivery, oblivious to the intricacies of server-side scheduling or network fluctuations.
 
 
 
