@@ -1,13 +1,13 @@
             "sharing": {
-                "facebook": true,
+                "facebook": false,
 
                 "google": false,
 
-                "github": true,
+                "github": false,
               {% if site.github_username %}
                 "github_link": "https://github.com/{{ site.github_username }}",
               {% else %}
-                "github_link": "https://github.com",
+                "github_link": "https://github.com/llm-qoe/llm-qoe.github.io",
               {% endif %}
 
                 "telegram": false,
@@ -17,7 +17,7 @@
 
                 "twitter": true,
               {% if site.twitter_username %}
-                "twitter_link": "https://twitter.com/{{ site.twitter_username }}",
+                "twitter_link": "https://twitter.com/JIACHENLIU8",
               {% endif %}
 
                 "vk": false,

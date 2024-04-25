@@ -116,7 +116,7 @@
 <a href="https://www.linkedin.com/in/zhiyu-wu-2a053226a/">Zhiyu Wu</a>,
 <a href="https://jaewonchung.me/about">Jae-Won Chung</a>  University of Michigan,
 <a href="https://www.fanlai.me/">Fan Lai</a> UIUC,
-<a href="https://scholar.google.com/citations?user=XjWpxJUAAAAJ&amp;hl=en">Myungjin Lee</a> Cisco,
+<a href="https://scholar.google.com/citations?user=XjWpxJUAAAAJ&amp;hl=en">Myungjin Lee</a> Cisco Systems,
 <a href="https://www.mosharaf.com/">Mosharaf Chowdhury</a>  University of Michigan.</em></p>
 
 <center><b>GitHub  (Coming soon) | Paper (TODO)</b></center>
@@ -133,6 +133,7 @@ However, existing serving systems primarily focus on optimizing server-side aggr
 <p>Imagine three different scenarios where text is streamed to users. Despite all having the same efficiency in token generation throughput, their user experiences vary dramatically:</p>
 
 <p><img src="/assets/post_img/qoe-comparison.gif" alt="qoe-comparison" />
+<!-- ![num_tokens](/assets/post_img/num_tokens.gif) -->
 <em><center>Figure 1. Different user experience comparison</center></em>
 <em><center>(a) Just Right. "Just like a comfortable chat with a friend."</center></em>
 <em><center>(b) The Long Wait. "Wait, wait... I'm about to close this tab!"</center></em>
@@ -148,18 +149,15 @@ However, existing serving systems primarily focus on optimizing server-side aggr
 
 <p>Current first-come, first-served (FCFS) scheduling policy, commonly adopted in LLM serving systems, fails to account for the QoE requirements of individual requests and cannot efficiently utilize resources. As shown in Figure 2, they often lead to misaligned user experiences, where the timing of token delivery doesn’t necessarily meet user needs.</p>
 
-<!-- ![Schedule1](/assets/post_img/user-exp-1.png ) -->
 <p align="center">
   <img src="/assets/post_img/user-exp-1.png" alt="Schedule1" style="width:80%;" />
 </p>
-<p><em><center>Figure 2 (a). Existing LLM serving systems are oblivious of QoE. User 2 experiencesa long wait time(TTFT) and therefore lower QoE.</center></em></p>
-
-<!-- ![Schedule1 2](/assets/post_img/user-exp-2.png) -->
+<p><em><center>Figure 2 (a). Existing LLM serving systems are oblivious of QoE. User 2 experiences a long wait time(TTFT) and therefore lower QoE.</center></em></p>
 
 <p align="center">
   <img src="/assets/post_img/user-exp-2.png" alt="Schedule2" style="width:80%;" />
 </p>
-<p><em><center>Figure 2 (b). A QoE-aware LLM serving system can schedule token gen- eration over time to enhance QoE. User 2’s TTFT is drastically improved without affecting User 1’s token delivery timeline.</center></em></p>
+<p><em><center>Figure 2 (b). A QoE-aware LLM serving system can schedule token generation over time to enhance QoE. User 2’s TTFT is drastically improved without affecting User 1’s token delivery timeline.</center></em></p>
 
 <center>Figure 2. Server-side token generation timeline and user- side response digestion progress. Even if the server generates tokens very fast, users cannot digest them at such a pace.</center>
 
@@ -169,11 +167,11 @@ However, existing serving systems primarily focus on optimizing server-side aggr
 
 <div style="display: flex; justify-content: center;">
   <div style="margin-right: 10px; text-align: center;">
-    <img src="/assets/post_img/imbalance-1.png" alt="Imbalance 1" style="width: 350px;" />
-    <figcaption>Figure 3 (a). 90th-p TTFTincreases dramatically as the request rate surpasses the server’s capacity.</figcaption>
+    <img src="/assets/post_img/imbalance-1.png" alt="Imbalance 1" style="width: 300px;" />
+    <figcaption>Figure 3 (a). 90th-p TTFT increases dramatically as the request rate surpasses the server’s capacity.</figcaption>
   </div>
   <div style="margin-left: 10px; text-align: center;">
-    <img src="/assets/post_img/imbalance-2.png" alt="Imbalance 1" style="width: 350px;" />
+    <img src="/assets/post_img/imbalance-2.png" alt="Imbalance 1" style="width: 300px;" />
     <figcaption>Figure 3 (b). Token generation speed is much faster than the user expected speed.</figcaption>
   </div>
 </div>
@@ -182,18 +180,23 @@ However, existing serving systems primarily focus on optimizing server-side aggr
 
 <p><br /></p>
 
-<p>Usually, in order to preserve good user experience, the service provider must provision more compute resources proportional to the excess request load, leading to higher costs.</p>
+<p>Usually, in order to preserve good user experience, the service provider must provision more compute resources proportional to the excess request load, leading to <strong>higher costs</strong>.</p>
 
 <p>However, we observe that there is an opportunity to optimize user experience by balancing prolonged TTFT and excessively fast token generation speed. By temporarily pausing the response generation for requests with already sufficient tokens generated, we can spare the limited GPU resources to other pending requests. This approach leverages the disparity between the expected and actual token generation speeds, optimizing both resource efficiency and user satisfaction.</p>
 
 <h2 id="introducing-andes-towards-a-better-user-experience-in-text-streaming-services">Introducing Andes: Towards a Better User Experience in Text Streaming Services</h2>
 
-<p>We propose Andes, an LLM serving system that optimizes the overall QoE of text streaming services. Andes employs a dynamic priority-based preemptive scheduler that operates at the granularity of tokens. Andes strategically allocates system resources to more urgent requests and preempts requests that have already received sufficient service, all to enhance QoE. Additionally, Andes takes the resource demand of each request into account while prioritizing resources. By satisfying more requests with high QoE using the same amount of resource, Andes eliminates the need for additional resource provisioning, thus reducing LLM serving cost. Andes also co-designs a client-side token buffer that temporarily withholds excess tokens and displays them to the user at their expected pace. This design ensures users experience smooth token delivery, oblivious to the intricacies of server-side scheduling or network fluctuations.</p>
+<p>We propose <strong>Andes</strong>, an LLM serving system that optimizes the overall QoE of text streaming services. Andes employs a dynamic priority-based preemptive scheduler that operates at the granularity of tokens. Andes strategically allocates system resources to more urgent requests and preempts requests that have already received sufficient service, all to enhance QoE. Additionally, Andes takes the resource demand of each request into account while prioritizing resources. By satisfying more requests with high QoE using the same amount of resource, Andes eliminates the need for additional resource provisioning, thus reducing LLM serving cost. Andes also co-designs a client-side token buffer that temporarily withholds excess tokens and displays them to the user at their expected pace. This design ensures users experience smooth token delivery, oblivious to the intricacies of server-side scheduling or network fluctuations.</p>
+
+<p align="center">
+  <img src="/assets/post_img/results.png" alt="results" style="width:95%;" />
+</p>
+<p><em><center>Figure 4. Average QoE under different request rates using the ShareGPT dataset.</center></em></p>
 
 <p>In our evaluation of Andes, we show</p>
 <ol>
-  <li>Andes improves the average QoE up to 3.2× when the system experiences high/bursty load. Specifically, Andes significantly improves TTFT, while maintaining TDS above user expected speed.</li>
-  <li>Andes can handle up to 1.6× higher request rates while preserving high QoE without additional resources, significantly reducing the serving cost.</li>
+  <li>Andes <strong>improves the average QoE up to 3.2×</strong> when the system experiences high/bursty load. Specifically, Andes significantly improves TTFT, while maintaining TDS above user expected speed.</li>
+  <li>Andes can <strong>manage up to 1.6× higher request rates</strong> while preserving high QoE without additional resources, significantly reducing the serving cost.</li>
 </ol>
 
 </section>
@@ -310,13 +313,13 @@ window.MathJax = {
                 "maxIndexSize": 1000000
             },
             "search": {},            "sharing": {
-                "facebook": true,
+                "facebook": false,
 
                 "google": false,
 
-                "github": true,
+                "github": false,
               
-                "github_link": "https://github.com",
+                "github_link": "https://github.com/llm-qoe/llm-qoe.github.io",
               
 
                 "telegram": false,
@@ -377,7 +380,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-24 23:13:36 -0400"
+        "time": "2024-04-25 00:26:36 -0400"
     },
     "basePath": "",
     "book": {
