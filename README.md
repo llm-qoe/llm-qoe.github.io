@@ -95,7 +95,7 @@ We propose **Andes**, an LLM serving system that optimizes the overall QoE of te
 <p align="center">
   <img src="/assets/post_img/results.png" alt="results" style="width:95%;">
 </p>
-*<center>Figure 4. Average QoE under different request rates using the ShareGPT dataset.</center>*
+*<center>Figure 4. Average QoE under different request rates using the ShareGPT dataset. We set the threshold to 0.9 as the minimum acceptable average QoE. </center>*
 
 
 In our evaluation of Andes, we show 

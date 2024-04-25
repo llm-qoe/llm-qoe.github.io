@@ -3,7 +3,15 @@
     <head>
 
         {%- include head.html -%}
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H7568X7NFS"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'G-H7568X7NFS');
+        </script>
         {% assign reversed_posts = site.posts | reverse %}
 
         {% if reversed_posts %}
