@@ -27,11 +27,14 @@ In this project, we first formally define QoE in text streaming services by cons
 Imagine three different scenarios where text is streamed to users. Despite all having the same efficiency in token generation throughput, their user experiences vary dramatically:
 
 ![qoe-comparison](/assets/post_img/qoe-comparison.gif)
-<!-- ![num_tokens](/assets/post_img/num_tokens.gif) -->
-*<center>Figure 1. Different user experience comparison</center>*
-*<center>(a) Just Right. "Just like a comfortable chat with a friend."</center>*
+![user-feedback](/assets/post_img/user-feedback.png)
+*<center>Figure 1 (a). Although all the responses complete within the same time, user experiences vary significantly. </center>*
+![num-tokens](/assets/post_img/num_tokens.gif)
+*<center>Figure 1 (b). Number of accumulated tokens displayed over time. </center>*
+
+<!-- *<center>(a) Just Right. "Just like a comfortable chat with a friend."</center>*
 *<center>(b) The Long Wait. "Wait, wait... I'm about to close this tab!"</center>*
-*<center>(c) First the tortoise and then the hare. "Hang in there...whoa, too much, too fast!”</center>*
+*<center>(c) First the tortoise and then the hare. "Hang in there...whoa, too much, too fast!”</center>* -->
 
 
 Despite generating the same response within the same time frame; even scenarios 1 and 3, which have identical average or P90 time per output token latency, these scenarios deliver vastly different user experiences. The slowdown that happens in scenario 2 and 3 are common under high server loads, such as during bursty request periods or when managing requests with extensive context.  

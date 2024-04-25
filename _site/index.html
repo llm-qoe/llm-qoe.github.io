@@ -142,11 +142,14 @@ However, existing serving systems primarily focus on optimizing server-side aggr
 <p>Imagine three different scenarios where text is streamed to users. Despite all having the same efficiency in token generation throughput, their user experiences vary dramatically:</p>
 
 <p><img src="/assets/post_img/qoe-comparison.gif" alt="qoe-comparison" />
-<!-- ![num_tokens](/assets/post_img/num_tokens.gif) -->
-<em><center>Figure 1. Different user experience comparison</center></em>
-<em><center>(a) Just Right. "Just like a comfortable chat with a friend."</center></em>
-<em><center>(b) The Long Wait. "Wait, wait... I'm about to close this tab!"</center></em>
-<em><center>(c) First the tortoise and then the hare. "Hang in there...whoa, too much, too fast!”</center></em></p>
+<img src="/assets/post_img/user-feedback.png" alt="user-feedback" />
+<em><center>Figure 1 (a). Although all the responses complete within the same time, user experiences vary significantly. </center></em>
+<img src="/assets/post_img/num_tokens.gif" alt="num-tokens" />
+<em><center>Figure 1 (b). Number of accumulated tokens displayed over time. </center></em></p>
+
+<!-- *<center>(a) Just Right. "Just like a comfortable chat with a friend."</center>*
+*<center>(b) The Long Wait. "Wait, wait... I'm about to close this tab!"</center>*
+*<center>(c) First the tortoise and then the hare. "Hang in there...whoa, too much, too fast!”</center>* -->
 
 <p>Despite generating the same response within the same time frame; even scenarios 1 and 3, which have identical average or P90 time per output token latency, these scenarios deliver vastly different user experiences. The slowdown that happens in scenario 2 and 3 are common under high server loads, such as during bursty request periods or when managing requests with extensive context.</p>
 
@@ -389,7 +392,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-25 10:28:49 -0400"
+        "time": "2024-04-25 12:11:38 -0400"
     },
     "basePath": "",
     "book": {
