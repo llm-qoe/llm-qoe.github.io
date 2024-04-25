@@ -74,20 +74,7 @@
                     
 
                     
-                        
-                        <li class="chapter" data-level="1.1" data-path="/pages/about/">
-                        
-                            <a href="/pages/about/" onclick="pageScrollToTop(this)">
-                                About
-                            </a>
-                            
-                                
-                            
-                        </li>
-                    
 
-                    
-                        <li class="divider"></li>
                     
                 
             
@@ -126,17 +113,20 @@
                     
 
                     <p><em><a href="https://websites.umich.edu/~amberljc/">Jiachen Liu</a>,
-Zhiyu Wu,
-<a href="https://jaewonchung.me/about">Jae-Won Chung</a>,
-<a href="https://www.fanlai.me/">Fan Lai</a>,
-<a href="https://scholar.google.com/citations?user=XjWpxJUAAAAJ&amp;hl=en">Myungjin Lee</a>,
-<a href="https://www.mosharaf.com/">Mosharaf Chowdhury</a>.</em>  <em>University of Michigan</em></p>
+<a href="https://www.linkedin.com/in/zhiyu-wu-2a053226a/">Zhiyu Wu</a>,
+<a href="https://jaewonchung.me/about">Jae-Won Chung</a>  University of Michigan,
+<a href="https://www.fanlai.me/">Fan Lai</a> UIUC,
+<a href="https://scholar.google.com/citations?user=XjWpxJUAAAAJ&amp;hl=en">Myungjin Lee</a> Cisco,
+<a href="https://www.mosharaf.com/">Mosharaf Chowdhury</a>  University of Michigan.</em></p>
 
 <center><b>GitHub  (Coming soon) | Paper (TODO)</b></center>
+<!-- <center><a href="https://www.example.com">GitHub</a></center> -->
 
-<p><strong>TL;DR:</strong> Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots by streaming tokens to users, akin to video streaming. Such text streaming service allows users to digest the content incrementally, whether in text or speech form. However, existing serving systems primarily focus on optimizing server-side aggregated metrics like token generation throughput, ignoring individual user experience with streamed text. As a result, under high and/or bursty load, a significant number of users can receive unfavorable service quality or poor Quality-of-Experience (QoE).</p>
+<p><strong>TL;DR:</strong> Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots.
+By streaming tokens to users, akin to video streaming, such text streaming service allows users to digest the content incrementally, whether in text or speech form. 
+However, existing serving systems primarily focus on optimizing server-side aggregated metrics while ignoring inidividual user experience, leading to unfavorable service quality or poor Quality-of-Experience (QoE) under high and/or bursty load.</p>
 
-<p>In this project, we first formally define QoE of text streaming services by considering the end-to-end token delivery process throughout the entire interaction with the user. Thereafter, we propose Andes, a QoE-aware serving system that enhances user experience for LLM-enabled text streaming services. At its core, Andes strategically allocates contended GPU resources among multiple requests over time to optimize their QoE. Our evaluations demonstrate that, compared to the state-of-the-art LLM serving systems like vLLM, Andes improves the average QoE by up to 3.2× under high request rate, or alternatively, it attains up to 1.6× higher request rate while preserving high QoE.</p>
+<p>In this project, we first formally define QoE in text streaming services by considering the end-to-end token delivery process. Thereafter, we propose Andes, a QoE-aware serving system that enhances user experience by strategically allocating contended GPU resources among multiple requests over time. Our evaluations demonstrate that, compared to the state-of-the-art LLM serving systems like vLLM, Andes improves the average QoE by up to 3.2× under high request rate, or alternatively, it attains up to 1.6× higher request rate while preserving high QoE.</p>
 
 <h2 id="a-user-side-story">A User-Side Story</h2>
 
@@ -162,7 +152,7 @@ Zhiyu Wu,
 <p align="center">
   <img src="/assets/post_img/user-exp-1.png" alt="Schedule1" style="width:80%;" />
 </p>
-<p><em><center>Figure 2 (a). Existing LLM serving systems are oblivious of QoE. User 2 experiencesRaelqounesgt 1waanidt2tiamrrieve(TTFT) and therefore lower QoE.</center></em></p>
+<p><em><center>Figure 2 (a). Existing LLM serving systems are oblivious of QoE. User 2 experiencesa long wait time(TTFT) and therefore lower QoE.</center></em></p>
 
 <!-- ![Schedule1 2](/assets/post_img/user-exp-2.png) -->
 
@@ -180,11 +170,11 @@ Zhiyu Wu,
 <div style="display: flex; justify-content: center;">
   <div style="margin-right: 10px; text-align: center;">
     <img src="/assets/post_img/imbalance-1.png" alt="Imbalance 1" style="width: 350px;" />
-    <figcaption>Figure 3 (a). 90th-p TTFTincreasesdra- matically as the request rate surpasses the server’s capacity.</figcaption>
+    <figcaption>Figure 3 (a). 90th-p TTFTincreases dramatically as the request rate surpasses the server’s capacity.</figcaption>
   </div>
   <div style="margin-left: 10px; text-align: center;">
     <img src="/assets/post_img/imbalance-2.png" alt="Imbalance 1" style="width: 350px;" />
-    <figcaption>Figure 3 (b). Token generation speed is much faster than the user- expected speed.</figcaption>
+    <figcaption>Figure 3 (b). Token generation speed is much faster than the user expected speed.</figcaption>
   </div>
 </div>
 
@@ -387,7 +377,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-24 22:47:20 -0400"
+        "time": "2024-04-24 23:13:36 -0400"
     },
     "basePath": "",
     "book": {

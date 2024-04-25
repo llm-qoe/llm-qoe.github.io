@@ -5,18 +5,21 @@ permalink: /
 ---
  
 *[Jiachen Liu](https://websites.umich.edu/~amberljc/),
-Zhiyu Wu,
-[Jae-Won Chung](https://jaewonchung.me/about),
-[Fan Lai](https://www.fanlai.me/),
-[Myungjin Lee](https://scholar.google.com/citations?user=XjWpxJUAAAAJ&hl=en),
-[Mosharaf Chowdhury](https://www.mosharaf.com/).*  *University of Michigan*
+[Zhiyu Wu](https://www.linkedin.com/in/zhiyu-wu-2a053226a/),
+[Jae-Won Chung](https://jaewonchung.me/about)  University of Michigan,
+[Fan Lai](https://www.fanlai.me/) UIUC,
+[Myungjin Lee](https://scholar.google.com/citations?user=XjWpxJUAAAAJ&hl=en) Cisco,
+[Mosharaf Chowdhury](https://www.mosharaf.com/)  University of Michigan.* 
  
 
 <center><b>GitHub  (Coming soon) | Paper (TODO)</b></center>
+<!-- <center><a href="https://www.example.com">GitHub</a></center> -->
 
-**TL;DR:** Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots by streaming tokens to users, akin to video streaming. Such text streaming service allows users to digest the content incrementally, whether in text or speech form. However, existing serving systems primarily focus on optimizing server-side aggregated metrics like token generation throughput, ignoring individual user experience with streamed text. As a result, under high and/or bursty load, a significant number of users can receive unfavorable service quality or poor Quality-of-Experience (QoE).
+**TL;DR:** Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots.
+By streaming tokens to users, akin to video streaming, such text streaming service allows users to digest the content incrementally, whether in text or speech form. 
+However, existing serving systems primarily focus on optimizing server-side aggregated metrics while ignoring inidividual user experience, leading to unfavorable service quality or poor Quality-of-Experience (QoE) under high and/or bursty load.
 
-In this project, we first formally define QoE of text streaming services by considering the end-to-end token delivery process throughout the entire interaction with the user. Thereafter, we propose Andes, a QoE-aware serving system that enhances user experience for LLM-enabled text streaming services. At its core, Andes strategically allocates contended GPU resources among multiple requests over time to optimize their QoE. Our evaluations demonstrate that, compared to the state-of-the-art LLM serving systems like vLLM, Andes improves the average QoE by up to 3.2× under high request rate, or alternatively, it attains up to 1.6× higher request rate while preserving high QoE.
+In this project, we first formally define QoE in text streaming services by considering the end-to-end token delivery process. Thereafter, we propose Andes, a QoE-aware serving system that enhances user experience by strategically allocating contended GPU resources among multiple requests over time. Our evaluations demonstrate that, compared to the state-of-the-art LLM serving systems like vLLM, Andes improves the average QoE by up to 3.2× under high request rate, or alternatively, it attains up to 1.6× higher request rate while preserving high QoE.
 
 
 ## A User-Side Story
@@ -46,7 +49,7 @@ Current first-come, first-served (FCFS) scheduling policy, commonly adopted in L
 <p align="center">
   <img src="/assets/post_img/user-exp-1.png" alt="Schedule1" style="width:80%;">
 </p>
-*<center>Figure 2 (a). Existing LLM serving systems are oblivious of QoE. User 2 experiencesRaelqounesgt 1waanidt2tiamrrieve(TTFT) and therefore lower QoE.</center>*
+*<center>Figure 2 (a). Existing LLM serving systems are oblivious of QoE. User 2 experiencesa long wait time(TTFT) and therefore lower QoE.</center>*
 
 <!-- ![Schedule1 2](/assets/post_img/user-exp-2.png) -->
 
@@ -64,11 +67,11 @@ We notice that especially under high request load, uneven user experiences arise
 <div style="display: flex; justify-content: center;">
   <div style="margin-right: 10px; text-align: center;">
     <img src="/assets/post_img/imbalance-1.png" alt="Imbalance 1" style="width: 350px;">
-    <figcaption>Figure 3 (a). 90th-p TTFTincreasesdra- matically as the request rate surpasses the server’s capacity.</figcaption>
+    <figcaption>Figure 3 (a). 90th-p TTFTincreases dramatically as the request rate surpasses the server’s capacity.</figcaption>
   </div>
   <div style="margin-left: 10px; text-align: center;">
     <img src="/assets/post_img/imbalance-2.png" alt="Imbalance 1" style="width: 350px;">
-    <figcaption>Figure 3 (b). Token generation speed is much faster than the user- expected speed.</figcaption>
+    <figcaption>Figure 3 (b). Token generation speed is much faster than the user expected speed.</figcaption>
   </div>
 </div>
  
