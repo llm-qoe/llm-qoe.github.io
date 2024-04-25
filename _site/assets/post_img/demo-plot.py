@@ -45,12 +45,13 @@ def stream_text_good():
         print(f"Error during text streaming: {e}")
     return time1
 
+delay_ttft = 5.6
 def stream_text_ttft():
     token_ids = []  # List to accumulate token ids
     decoded_text = ""  # Decoded text to be appended to chatbot
     start_time = time.time()
     time2 = [0]
-    time.sleep(6.8)  # Simulate delay
+    time.sleep(delay_ttft - 1)  # Simulate delay
     try:
         for i in range(num_tokens):
             now = time.time()
@@ -104,15 +105,15 @@ def main():
     tokens = list(np.arange(0, num_tokens + 1))
 
     frames = 360  # Number of frames to generate
-    max_time = 12.8
+    max_time = 12
     # align the start point
-    times2[1:] = [x + 7.5 - times2[1] for x in times2[1:]]
+    times2[1:] = [x + delay_ttft - times2[1] for x in times2[1:]]
 
     # align the end point
     times1[1:] = [(x - times1[1]) * (max_time - times1[1]) / (times1[-1] - times1[1]) + times1[1] for x in times1[1:]]
     times2[1:] = [(x - times2[1]) * (max_time - times2[1]) / (times2[-1] - times2[1]) + times2[1] for x in times2[1:]]
     times3[1:] = [(x - times3[1]) * (max_time - times3[1]) / (times3[-1] - times3[1]) + times3[1] for x in times3[1:]]
-    duration = 15.03  # Duration of the video in seconds
+    duration = 13.4  # Duration of the video in seconds
     timesticks = np.linspace(0, duration, frames)
 
     import json
@@ -214,4 +215,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-# ffmpeg -i tokens_three_subplots.mp4 num_tokens.gif
+# ffmpeg -i tokens_three_subplots.mp4 num_tokens.gif -y
