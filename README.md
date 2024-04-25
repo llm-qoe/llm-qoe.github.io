@@ -16,9 +16,13 @@ In this project, we first formally define QoE of text streaming services by cons
 Imagine three different scenarios where text is streamed to users. Despite all having the same efficiency in token generation throughput, their user experiences vary dramatically:
 
 ![qoe-comparison](/assets/post_img/qoe-comparison.gif)
+*<center>Figure 1. Different user experience comparison</center>*
+*<center>(a) Just Right. "Just like a comfortable chat with a friend."</center>*
+*<center>(b) The Long Wait. "Wait, wait... I'm about to close this tab!"</center>*
+*<center>(c) First the tortoise and then the hare. "Hang in there...whoa, too much, too fast!”</center>*
 
 
-Despite generating the same amount of tokens within the same time frame; even scenarios 2 and 3, which have identical average or P90 time per output token latency, these scenarios deliver vastly different user experiences. The slowdown that happens in scenario 1 and 2 are common under high server loads, such as during bursty request periods or when managing requests with extensive context.  
+Despite generating the same response within the same time frame; even scenarios 1 and 3, which have identical average or P90 time per output token latency, these scenarios deliver vastly different user experiences. The slowdown that happens in scenario 2 and 3 are common under high server loads, such as during bursty request periods or when managing requests with extensive context.  
 
 It is crucial that the initial response is prompt and that subsequent tokens are delivered at a pace aligned with the user’s ability to digest them.  However, the expected token delivery speed (TDS) differs from request to request. For instance, a chat service utilizing text-to-speech to deliver responses may have different pacing requirements than a text-based chat service, because a user’s speaking speed is often slower than their reading speed, but it may require smaller time to first token (TTFT) to better resemble real-life verbal conversations.
 
