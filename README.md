@@ -12,8 +12,8 @@ permalink: /
 [Mosharaf Chowdhury](https://www.mosharaf.com/)  University of Michigan.* 
  
 
-<center><b>GitHub  (Coming soon) | Paper (TODO)</b></center>
-<!-- <center><a href="https://www.example.com">GitHub</a></center> -->
+<!-- <center><b>GitHub  (Coming soon) | Paper </b></center> -->
+<center><b><a href="https://arxiv.org/abs/2404.16283">Paper</a> | GitHub</b> (Coming soon)</center>
 
 **TL;DR:** Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots.
 By streaming tokens to users, akin to video streaming, such text streaming service allows users to digest the content incrementally, whether in text or speech form. 

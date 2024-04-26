@@ -113,7 +113,7 @@ def main():
     times1[1:] = [(x - times1[1]) * (max_time - times1[1]) / (times1[-1] - times1[1]) + times1[1] for x in times1[1:]]
     times2[1:] = [(x - times2[1]) * (max_time - times2[1]) / (times2[-1] - times2[1]) + times2[1] for x in times2[1:]]
     times3[1:] = [(x - times3[1]) * (max_time - times3[1]) / (times3[-1] - times3[1]) + times3[1] for x in times3[1:]]
-    duration = 13.4  # Duration of the video in seconds
+    duration = 13.7  # Duration of the video in seconds
     timesticks = np.linspace(0, duration, frames)
 
     import json
