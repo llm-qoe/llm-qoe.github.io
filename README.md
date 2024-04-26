@@ -26,7 +26,7 @@ In this project, we first formally define QoE in text streaming services by cons
 
 Imagine three different scenarios where text is streamed to users. Despite all having the same efficiency in token generation throughput, their user experiences vary dramatically:
 
-![qoe-comparison](/assets/post_img/qoe-comparison.gif)
+![qoe-comparison](/assets/post_img/qoe-comparison-new.gif)
 ![user-feedback](/assets/post_img/user-feedback.png)
 *<center>Figure 1 (a). Although all the responses complete within the same time, user experiences vary significantly. </center>*
 ![num-tokens](/assets/post_img/num_tokens.gif)

@@ -45,7 +45,7 @@ def stream_text_good():
         print(f"Error during text streaming: {e}")
     return time1
 
-delay_ttft = 5.6
+delay_ttft = 8
 def stream_text_ttft():
     token_ids = []  # List to accumulate token ids
     decoded_text = ""  # Decoded text to be appended to chatbot
@@ -105,7 +105,7 @@ def main():
     tokens = list(np.arange(0, num_tokens + 1))
 
     frames = 360  # Number of frames to generate
-    max_time = 12
+    max_time = 13
     # align the start point
     times2[1:] = [x + delay_ttft - times2[1] for x in times2[1:]]
 
@@ -113,7 +113,7 @@ def main():
     times1[1:] = [(x - times1[1]) * (max_time - times1[1]) / (times1[-1] - times1[1]) + times1[1] for x in times1[1:]]
     times2[1:] = [(x - times2[1]) * (max_time - times2[1]) / (times2[-1] - times2[1]) + times2[1] for x in times2[1:]]
     times3[1:] = [(x - times3[1]) * (max_time - times3[1]) / (times3[-1] - times3[1]) + times3[1] for x in times3[1:]]
-    duration = 13.7  # Duration of the video in seconds
+    duration = 15.32  # Duration of the video in seconds
     timesticks = np.linspace(0, duration, frames)
 
     import json

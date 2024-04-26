@@ -135,13 +135,13 @@
 By streaming tokens to users, akin to video streaming, such text streaming service allows users to digest the content incrementally, whether in text or speech form. 
 However, existing serving systems primarily focus on optimizing server-side aggregated metrics while ignoring inidividual user experience, leading to unfavorable service quality or poor Quality-of-Experience (QoE) under high and/or bursty load.</p>
 
-<p>In this project, we first formally define QoE in text streaming services by considering the end-to-end token delivery process. Thereafter, we propose Andes, a QoE-aware serving system that enhances user experience by strategically allocating contended GPU resources among multiple requests over time. Our evaluations demonstrate that, compared to the state-of-the-art LLM serving systems like vLLM, Andes improves the average QoE by up to 3.2× under high request rate, or alternatively, it attains up to 1.6× higher request rate while preserving high QoE.</p>
+<p>In this project, we first formally define QoE in text streaming services by considering the end-to-end token delivery process. Thereafter, we propose Andes, a QoE-aware serving system that enhances user experience. Andes achieves this by strategically scheduling multiple requests on contended GPU resources, prioritizing them based on their resource demands and service acquired. Our evaluations demonstrate that, compared to the state-of-the-art LLM serving systems like vLLM, Andes improves the average QoE by up to 3.2× under high request rate, or alternatively, it attains up to 1.6× higher request rate while preserving high QoE.</p>
 
 <h2 id="a-user-side-story">A User-Side Story</h2>
 
 <p>Imagine three different scenarios where text is streamed to users. Despite all having the same efficiency in token generation throughput, their user experiences vary dramatically:</p>
 
-<p><img src="/assets/post_img/qoe-comparison.gif" alt="qoe-comparison" />
+<p><img src="/assets/post_img/qoe-comparison-new.gif" alt="qoe-comparison" />
 <img src="/assets/post_img/user-feedback.png" alt="user-feedback" />
 <em><center>Figure 1 (a). Although all the responses complete within the same time, user experiences vary significantly. </center></em>
 <img src="/assets/post_img/num_tokens.gif" alt="num-tokens" />
@@ -395,7 +395,7 @@ window.MathJax = {
     },
     "gitbook": {
         "version": "3.2.3",
-        "time": "2024-04-25 21:29:16 -0400"
+        "time": "2024-04-26 00:35:22 -0400"
     },
     "basePath": "",
     "book": {

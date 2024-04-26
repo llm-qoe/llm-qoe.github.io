@@ -22,7 +22,46 @@ def crop_gif(input_gif_path, output_gif_path, crop_area):
     frames[0].save(output_gif_path, save_all=True, append_images=frames[1:], optimize=False, duration=img.info['duration'], loop=0)
 
 # Define the crop area (left, upper, right, lower)
-crop_area = (0, 75, 1895, 1000)  # Adjust these values to your needs
+# crop_area = (0, 75, 1895, 1000)  
+# crop_gif('original.gif', 'qoe-comparison.gif', crop_area)
 
-# Call the function with paths and crop area
-crop_gif('original.gif', 'qoe-comparison.gif', crop_area)
+
+from PIL import Image, ImageSequence
+
+# Open the GIF file
+gif_path = 'qoe-comparison.gif'
+gif = Image.open(gif_path)
+
+# Create a new list to store the frames with adjusted delays
+frames = []
+
+# Adjust the delay for each frame to slow down the GIF
+for frame in ImageSequence.Iterator(gif):
+    frame_copy = frame.copy()
+    
+    # Increase the delay by doubling it
+    frame_copy.info['duration'] *= 1.5
+    
+    frames.append(frame_copy)
+
+# Save the modified frames as a new GIF
+output_path = 'qoe-comparison-new.gif'
+frames[0].save(output_path, save_all=True, append_images=frames[1:], duration=frames[0].info['duration'], loop=0)
+
+# from PIL import Image
+
+# # Open the GIF file
+# gif_path = "example.gif"
+# gif = Image.open(gif_path)
+
+# # Get the duration of each frame in the GIF
+# frame_durations = []
+# for frame in ImageSequence.Iterator(gif):
+#     if 'duration' in frame.info:
+#         duration = frame.info['duration'] / 1000  # Convert milliseconds to seconds
+#         frame_durations.append(duration)
+
+# # Calculate the total duration of the GIF
+# total_duration = sum(frame_durations)
+
+# print(f"Total duration of the GIF: {total_duration} seconds")
