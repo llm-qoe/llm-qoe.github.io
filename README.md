@@ -17,7 +17,7 @@ permalink: /
 
 **TL;DR:** Large language models (LLMs) have revolutionized text-based interactions, enabling services from real-time translation to AI-driven chatbots.
 By streaming tokens to users, akin to video streaming, such text streaming service allows users to digest the content incrementally, whether in text or speech form. 
-However, existing serving systems primarily focus on optimizing server-side aggregated metrics while ignoring inidividual user experience, leading to unfavorable service quality or poor Quality-of-Experience (QoE) under high and/or bursty load.
+However, existing serving systems primarily focus on optimizing server-side aggregated metrics while ignoring individual user experience, leading to unfavorable service quality or poor Quality-of-Experience (QoE) under high and/or bursty load.
 
 In this project, we first formally define QoE in text streaming services by considering the end-to-end token delivery process. Thereafter, we propose Andes, a QoE-aware serving system that enhances user experience. Andes achieves this by strategically scheduling multiple requests on contended GPU resources, prioritizing them based on their resource demands and service acquired. Our evaluations demonstrate that, compared to the state-of-the-art LLM serving systems like vLLM, Andes improves the average QoE by up to 3.2× under high request rate, or alternatively, it attains up to 1.6× higher request rate while preserving high QoE.
 
